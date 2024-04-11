@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} pizza house/reservation {% endblock %}
+
+{% block content%}
+<form method = "POST" >
+    <br>
+    <h3 align = "center">Make Reservation</h3>
+    <div class = "form-group">
+        <label for ="email">Email Address</label>
+        <input type = "email" class="form-control" id="email" name="email" placeholder="Enter email">
+    </div>
+    <div class = "form-group">
+        <label for ="name">Name</label>
+        <input type = "text" class="form-control" id="name" name="name" placeholder="Enter your full name">
+    </div>
+    <div class = "form-group">
+        <label for ="reservation_date">reservation date</label>
+        <input type = "text" class="form-control" id="reservation_date" name="reservation_date" placeholder="enter reservation_date">
+    </div>
+    <div class = "form-group">
+        <label for ="reservation_time">reservation time</label>
+        <input type = "text" class="form-control" id="reservation_time" name="reservation_time" placeholder="enter reservation_time">
+    </div>
+    <div class = "form-group">
+        <label for ="people">No. of people</label>
+        <input type = "number" class="form-control" id="peopl" name="people" placeholder="select no. of people">
+    </div>
+    
+
+    <br/>
+<div align = "center">
+    <button type="submit" class="btn btn-primary">submit</button>
+</div>
+<br>
+<br>
+<div>
+    <hr>
+    <h6><u>Reservations:</u></h6>
+    <p>id. email ; name ; reservation_date ; reservation_time ; no. of people ; date&time_submitted</p>
+    {% for reservation in user.reservations %}
+
+    {{ reservation.id }}.   {{ reservation.email }}  ;  {{ reservation.name }}   ;   {{ reservation.rdate }}   ;  {{ reservation.rtime }}  ;   {{ reservation.people }}   ;   {{ reservation.date }} <br>
+
+    {% endfor %}
+    <br><br>
+
+</div>
+
+</form>
+{% endblock %}
+    

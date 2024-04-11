@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %} pizza house/home {% endblock %}
+
+{% block content%}
+ <div class="section_container header_container">
+    <div class="header_image">
+        <img src="{{ url_for('static' , filename='images/headerpng.png') }}">
+    </div>
+    <div class="header_content">
+        <h2>IT'S A CHEESY AFFAIR</h2>
+        <h1>PIZZA<br><span>SEASON</span></h1>
+    </div>
+   </div>
+
+</header>
+    <section class="section-container banner_container" id="special">
+        <div class="banner_card">
+            <p>ORDER YOURS TODAY</p>
+            <h4>TASTY AND EXTRA CHEESY FOR YOU</h4>
+        </div>
+        <div class="banner_card">
+            <p>ORDER YOURS TODAY</p>
+            <h4>EXTRA TOPPINGS<br>RICHER FLAVOURS</h4>
+        </div>
+        <div class="banner_card">
+            <p>ORDER YOURS TODAY</p>
+            <h4>MEATY AND TASTY</h4>
+        </div>
+
+    </section>
+    <section class="section_container order_container" id="menu">
+        <h3>ALWAYS TASTY</h3>
+        <h2 class="section_header">CHOOSE & SAVOUR</h2>
+        <p class="section_description">
+            Whether you like a simple-topped pizza or with an adventurous combo of toppings on it, we have got you covered. Explore the world of taste with our diverse list of topppings on your pizza.
+        </p>
+        <div class="order_grid">
+            <div class="order_card">
+                <img src="{{ url_for('static',filename='images/h1.jpeg') }}">
+                <h4>Hawaiian Pizza</h4>
+                <p>Dive into the all popular Hawaiian topped pizza and get the savoury taste of a combination that you cant resist!</p>
+                <a href="/order">Order</a>
+            </div>
+            <div class="order_card">
+                <img src="{{ url_for('static',filename='images/bbq1.jpg') }}" >
+                <h4>Barbeque Chicken Pizza</h4>
+                <p>It has got to be your favourite too! Our barbeque chicken pizza is both a meaty and cheesy affair that'll leave your tastebuds asking for more.</p>
+                <a href="/order">Order</a>
+            </div>
+            <div class="order_card">
+                <img src="{{ url_for('static',filename='images/banner6.jpg' ) }}">
+                <h4>Zesty Veggie Pizza</h4>
+                <p>You like the idea of a snack topped with veggies? No doubt this combo is just for you. Dive into a savoury twist of taste with veggie-toppings on your Pizza.  </p>
+                <a href="/order">Order</a>
+            </div>
+        </div>
+    </section>
+<body>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
+    <script
+     type = "text/javascript" 
+     src = "{{ url_for('static', filename = 'index.js') }}"
+     ></script> 
+</body>
+    
+{% endblock %}  

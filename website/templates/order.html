@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %} pizza house/order{% endblock %}
+
+{% block content%}
+<form method = "POST">
+    <h3 align = "center">make new order</h3>
+    <div class = "form-group">
+        <label for ="email">Email Address</label>
+        <input type = "email" class="form-control" id="email" name="email" placeholder="Enter email">
+    </div>
+    <div class = "form-group">
+        <label for ="name">Name</label>
+        <input type = "text" class="form-control" id="name" name="name" placeholder="Enter your full name">
+    </div>
+    <div class = "form-group">
+        <label for ="item">Item</label>
+        <input type = "text" class="form-control" id="item" name="item" placeholder="Enter item">
+    </div>
+    <div class = "form-group">
+        <label for ="quantity">Quantity</label>
+        <input type = "number" class="form-control" id="quantity" name="quantity" placeholder="select quantity">
+    </div>
+    <div class = "form-group">
+        <label for ="destination">Destination</label>
+        <input type = "destination" class="form-control" id="destination" name="destination" placeholder="Enter destibation address">
+    </div>
+    <br>
+    <div align = "center">
+        <button type="submit" class="btn btn-primary">submit</button>
+    </div>
+    <br> 
+    <br>
+    <div>
+        <hr>
+        <h6s><u> orders: </u></h6>
+        <p>id. email ; name ; quantity ; item ; destination ; date&time_submitted</p>
+            {% for order in user.orders %}
+               {{ order.id }} . {{ order.email  }} ; {{ order.name }}  ;  {{ order.quantity }}  ; {{ order.item }}  ;  {{ order.destination }}  ;  {{ order.date }}
+                <button onclick="deleteorder({{ order.id }})">&times</button> <br> 
+        {% endfor %}
+        <br><br>
+    </div>
+</form>
+
+<script type="text/javascript">
+    function deleteorder(id){
+        fetch('{{ url_for("auth.delete", id = id)}}' + id, 
+        {method: 'DELETE'}).then(response => {
+            if(response.ok){
+                window.location.reload();
+            } else {
+                console.error('failed to delete item');
+            }
+        })
+        .catch(error => {
+            console.error('error during fetching', error)
+        });
+    }
+</script>
+{% endblock %}
